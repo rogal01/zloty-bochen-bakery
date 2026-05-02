@@ -1,0 +1,228 @@
+/*
+Theme Name: Złoty Bochen Portfolio Theme
+Theme URI: https://github.com/rogal01/zloty-bochen-bakery
+Author: Portfolio Demo
+Description: Fictional bakery WordPress theme showing editable content, custom post types, and an inquiry form.
+Version: 1.0.0
+License: GPL-2.0-or-later
+Text Domain: zloty-bochen
+*/
+
+:root {
+  --zb-ink: #1d2330;
+  --zb-cream: #fff5e4;
+  --zb-paper: #fffdf8;
+  --zb-gold: #c58d44;
+  --zb-berry: #8f2d56;
+  --zb-mint: #dcefe7;
+  --zb-line: rgba(29, 35, 48, 0.16);
+  --zb-shadow: 0 24px 70px rgba(29, 35, 48, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--zb-ink);
+  background: var(--zb-cream);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.zb-header,
+.zb-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px clamp(18px, 5vw, 64px);
+  background: var(--zb-paper);
+  border-bottom: 1px solid var(--zb-line);
+}
+
+.zb-brand {
+  display: grid;
+  gap: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 900;
+}
+
+.zb-brand small {
+  color: var(--zb-berry);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+}
+
+.zb-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 800;
+}
+
+.zb-nav a {
+  text-decoration: none;
+}
+
+.zb-hero {
+  min-height: 78vh;
+  display: grid;
+  align-items: end;
+  padding: 80px clamp(18px, 5vw, 72px);
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(29, 35, 48, 0.88), rgba(29, 35, 48, 0.18)),
+    url("https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1800&auto=format&fit=crop") center / cover;
+}
+
+.zb-hero-content {
+  max-width: 840px;
+}
+
+.zb-label {
+  color: var(--zb-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.zb-hero h1,
+.zb-section h2 {
+  margin: 0 0 18px;
+  letter-spacing: 0;
+  line-height: 0.94;
+}
+
+.zb-hero h1 {
+  font-size: clamp(3.2rem, 8vw, 7.4rem);
+}
+
+.zb-section h2 {
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+}
+
+.zb-hero p,
+.zb-section p {
+  line-height: 1.65;
+}
+
+.zb-button,
+.zb-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  color: white;
+  background: var(--zb-berry);
+  border: 0;
+  border-radius: 8px;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.zb-section {
+  width: min(1160px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 88px 0;
+  border-top: 1px solid var(--zb-line);
+}
+
+.zb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.zb-card,
+.zb-form-wrap {
+  padding: 24px;
+  background: var(--zb-paper);
+  border: 1px solid var(--zb-line);
+  border-radius: 8px;
+  box-shadow: var(--zb-shadow);
+}
+
+.zb-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+}
+
+.zb-card p {
+  margin-bottom: 0;
+  color: rgba(29, 35, 48, 0.72);
+}
+
+.zb-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
+  gap: 42px;
+  align-items: start;
+}
+
+.zb-form {
+  display: grid;
+  gap: 14px;
+}
+
+.zb-form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 800;
+}
+
+.zb-form input,
+.zb-form select,
+.zb-form textarea {
+  width: 100%;
+  padding: 12px;
+  color: var(--zb-ink);
+  background: white;
+  border: 1px solid var(--zb-line);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.zb-notice {
+  padding: 14px;
+  color: var(--zb-ink);
+  background: var(--zb-mint);
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.zb-footer {
+  color: white;
+  background: var(--zb-ink);
+  border: 0;
+}
+
+.zb-footer a {
+  color: #f6c06d;
+}
+
+@media (max-width: 860px) {
+  .zb-header,
+  .zb-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .zb-grid,
+  .zb-split {
+    grid-template-columns: 1fr;
+  }
+}

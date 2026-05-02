@@ -6,7 +6,7 @@
     <title>Złoty Bochen | Portfolio case study</title>
     <meta
       name="description"
-      content="Freelance portfolio case study: fictional bakery website with Next.js flagship app, static HTML variant, and PHP inquiry form."
+      content="Freelance portfolio case study: fictional bakery website with Next.js, FastAPI, WordPress, static HTML, and PHP variants."
     />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="stylesheet" href="styles.css" />
@@ -30,8 +30,8 @@
           <p class="eyebrow">Fikcyjna marka, realny scenariusz sprzedażowy</p>
           <h1>Portfolio dla lokalnej piekarni, które pokazuje więcej niż ładny ekran.</h1>
           <p>
-            Złoty Bochen to anonimowy projekt demonstracyjny: pełny Next.js site z API i konfiguracją tortu,
-            statyczna wersja pod GitHub Pages oraz mały wariant PHP pod tani hosting.
+            Złoty Bochen to anonimowy projekt demonstracyjny: pełny Next.js site, Python API,
+            WordPress theme, statyczna wersja pod GitHub Pages oraz mały wariant PHP pod tani hosting.
           </p>
           <div class="actions">
             <a class="button primary" href="https://vercel.com/new/clone?repository-url=https://github.com/rogal01/zloty-bochen-bakery">Deploy Next.js demo</a>
@@ -50,7 +50,7 @@
       <section id="work" class="section split">
         <div>
           <p class="eyebrow">Dlaczego tak</p>
-          <h2>Jedna mocna realizacja, trzy praktyczne sposoby pokazania umiejętności.</h2>
+          <h2>Jedna mocna realizacja, kilka praktycznych sposobów pokazania umiejętności.</h2>
         </div>
         <p>
           Dla klientów freelance liczy się zaufanie: czy strona wygląda profesjonalnie, czy rozwiązuje
@@ -98,6 +98,28 @@
               <a href="https://github.com/rogal01/zloty-bochen-bakery/tree/master/php-variant">Zobacz PHP</a>
             </div>
           </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=900&auto=format&fit=crop"
+              alt="Kawiarnia jako podgląd backendu Python"
+            />
+            <div>
+              <h3>FastAPI Python backend</h3>
+              <p>Osobne API z bazą SQLite dla smaków, lokalizacji i zapytań. Pokazuje backend niezależny od frontendu.</p>
+              <a href="https://github.com/rogal01/zloty-bochen-bakery/tree/master/services/fastapi-orders">Zobacz FastAPI</a>
+            </div>
+          </article>
+          <article>
+            <img
+              src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=900&auto=format&fit=crop"
+              alt="Babeczki jako podgląd motywu WordPress"
+            />
+            <div>
+              <h3>WordPress theme</h3>
+              <p>Motyw dla klienta, który chce edytować torty, lokalizacje i odbierać zapytania w panelu admina.</p>
+              <a href="https://github.com/rogal01/zloty-bochen-bakery/tree/master/wordpress-theme/zloty-bochen">Zobacz WordPress</a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -109,6 +131,7 @@
         <ul>
           <li><strong>Oferta:</strong> pieczywo, torty premium, lokalizacje i click & collect.</li>
           <li><strong>Konwersja:</strong> jasne CTA do konfiguratora oraz zapytania o odbiór.</li>
+          <li><strong>Baza danych:</strong> smaki, lokalizacje i zamówienia są modelowane jako dane, nie tekst na sztywno.</li>
           <li><strong>Wiarygodność:</strong> fikcyjne dane, brak podszywania się pod realną markę.</li>
           <li><strong>Zakres:</strong> od szybkiego statycznego landing page’a po pełną aplikację.</li>
         </ul>

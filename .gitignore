@@ -45,3 +45,11 @@ next-env.d.ts
 # local databases
 /dev.db
 /prisma/dev.db
+
+# python service local artifacts
+__pycache__/
+*.py[cod]
+.venv/
+/services/fastapi-orders/*.db
+/services/fastapi-orders/.venv/
+/services/fastapi-orders/.deps/
