@@ -12,17 +12,17 @@ export default function Footer() {
                 ZŁOTY BOCHEN
               </span>
               <span className="text-[11px] tracking-[0.3em] uppercase text-bakery-gold mt-1">
-                Koncepcja portfolio
+                Fikcyjna piekarnia
               </span>
             </Link>
             <p className="font-light mb-8 max-w-sm">
-              Fikcyjna piekarnia premium zaprojektowana jako portfolio dla freelancera: strona sprzedażowa, konfigurator tortu, API i warianty technologiczne.
+              Złoty Bochen to fikcyjna piekarnia premium z rzemieślniczym pieczywem, tortami artystycznymi, sezonową ofertą i wygodnym zamawianiem tortów.
             </p>
             <div className="flex gap-4">
-              <a href="#" aria-label="Strona demo" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-bakery-gold hover:text-future-dusk transition-colors">
+              <a href="#" aria-label="Strona piekarni" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-bakery-gold hover:text-future-dusk transition-colors">
                 <Globe size={18} />
               </a>
-              <a href="#" aria-label="Udostępnij demo" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-bakery-gold hover:text-future-dusk transition-colors">
+              <a href="#" aria-label="Udostępnij stronę" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-bakery-gold hover:text-future-dusk transition-colors">
                 <Share2 size={18} />
               </a>
             </div>
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6 font-serif text-xl">Kontakt demo</h4>
+            <h4 className="text-white font-bold mb-6 font-serif text-xl">Kontakt</h4>
             <ul className="space-y-4 font-light">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="mt-1 text-bakery-gold shrink-0" />
@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-light">
-          <p>&copy; {new Date().getFullYear()} Złoty Bochen. Fikcyjny projekt portfolio.</p>
+          <p>&copy; {new Date().getFullYear()} Złoty Bochen. Fikcyjna piekarnia premium.</p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">Polityka Prywatności</Link>
             <Link href="#" className="hover:text-white transition-colors">Regulamin Sklepu</Link>

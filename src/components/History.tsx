@@ -21,7 +21,7 @@ export default function History() {
             </div>
             <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-sm p-6 rounded-xl border border-white/50">
               <h3 className="font-serif text-2xl text-future-dusk font-bold mb-2">Fikcyjna marka, realny scenariusz</h3>
-              <p className="text-slate-600">Złoty Bochen pokazuje, jak można zaprojektować pełną stronę dla piekarni: od historii marki po zamówienia tortów.</p>
+              <p className="text-slate-600">Złoty Bochen to fikcyjna piekarnia z własną historią, lokalnymi pracowniami i zamówieniami tortów.</p>
             </div>
           </div>
 
@@ -31,9 +31,8 @@ export default function History() {
               Od piekarni rodzinnej<br />do cyfrowych zamówień
             </h2>
             <p className="text-lg text-slate-600 mb-12 font-light leading-relaxed">
-              Ten projekt nie udaje oficjalnej strony istniejącej firmy. To anonimowy, realistyczny przykład
-              strony dla lokalnej piekarni: mocna warstwa wizualna, treści sprzedażowe, baza lokalizacji,
-              API oraz konfigurator tortu z podglądem 3D.
+              To fikcyjna, realistycznie opisana piekarnia premium: z rzemieślniczym pieczywem,
+              tortami artystycznymi, lokalnymi punktami odbioru oraz konfiguratorem tortu z podglądem 3D.
             </p>
 
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-bakery-gold/30 before:to-transparent">

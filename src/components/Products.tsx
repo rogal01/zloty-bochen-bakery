@@ -78,7 +78,7 @@ export default function Products() {
               <h2 className="text-4xl md:text-5xl font-serif text-future-dusk mb-6">Chleb, jak dawniej.</h2>
               <p className="text-lg text-slate-600 mb-6 font-light leading-relaxed">
                 W naszych fikcyjnych pracowniach zapach świeżego chleba unosi się już od świtu.
-                Stosujemy tradycyjne metody fermentacji i receptury zaprojektowane pod wiarygodny lokalny biznes.
+                Stosujemy tradycyjne metody fermentacji i receptury dobrane do charakteru lokalnej piekarni.
               </p>
               <ul className="space-y-4 mb-8">
                 <li className="flex items-center gap-3 text-slate-700">

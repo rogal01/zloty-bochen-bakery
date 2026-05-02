@@ -73,7 +73,7 @@ const DECORATIONS = [
 
 const DELIVERY_OPTIONS = [
   { id: "pickup", label: "Odbiór osobisty", desc: "Najbezpieczniejsza opcja dla tortów piętrowych", price: 0 },
-  { id: "local", label: "Dostawa lokalna", desc: "Demo dostawy w obrębie miasta", price: 35 },
+  { id: "local", label: "Dostawa lokalna", desc: "Dostawa w obrębie miasta", price: 35 },
 ];
 
 const PICKUP_LOCATIONS = [
@@ -219,7 +219,7 @@ export default function Configurator() {
   const submitOrder = async () => {
     setSubmitMessage("");
     if (!config.date || !config.customerName || !config.customerPhone) {
-      setSubmitMessage("Uzupełnij imię, kontakt i datę odbioru, aby wysłać zapytanie demo.");
+      setSubmitMessage("Uzupełnij imię, kontakt i datę odbioru, aby wysłać zapytanie.");
       return;
     }
 
@@ -257,10 +257,10 @@ export default function Configurator() {
         throw new Error("Nie udało się wysłać zamówienia");
       }
 
-      setSubmitMessage("Zapytanie demo zapisane. W realnym wdrożeniu klient dostałby potwierdzenie SMS lub e-mail.");
+      setSubmitMessage("Zapytanie zapisane. Cukiernia skontaktuje się, aby potwierdzić szczegóły.");
     } catch (err) {
       console.error("Nie udało się zapisać zapytania", err);
-      setSubmitMessage("Nie udało się zapisać zapytania demo. Spróbuj ponownie po chwili.");
+      setSubmitMessage("Nie udało się zapisać zapytania. Spróbuj ponownie po chwili.");
     } finally {
       setIsSubmitting(false);
     }
@@ -569,7 +569,7 @@ export default function Configurator() {
 
                   <p className="flex items-start gap-2 rounded-lg border border-bakery-gold/30 bg-bakery-cream p-4 text-sm text-slate-600">
                     <Info size={16} className="mt-0.5 shrink-0 text-bakery-gold" />
-                    Torty piętrowe i z dekoracjami wymagają minimum 48 godzin przygotowania. Wersja demo zapisuje zapytanie, nie pobiera płatności.
+                    Torty piętrowe i z dekoracjami wymagają minimum 48 godzin przygotowania. Formularz zapisuje zapytanie i pozwala cukierni potwierdzić szczegóły.
                   </p>
                 </div>
               </BuilderStep>
@@ -589,7 +589,7 @@ export default function Configurator() {
                     <ReviewLine label="Dekoracje" value={decorationSummary} />
                     {hasWaferText && <ReviewLine label="Napis" value={config.text || "Nie wpisano"} />}
                     <ReviewLine label="Odbiór" value={config.date || "Nie wybrano daty"} />
-                    <ReviewLine label="Cena demo" value={formatPrice(price)} strong />
+                    <ReviewLine label="Cena" value={formatPrice(price)} strong />
                   </div>
 
                   <button
@@ -597,7 +597,7 @@ export default function Configurator() {
                     onClick={submitOrder}
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Zapisywanie..." : "Wyślij zapytanie demo"} <Check size={18} />
+                    {isSubmitting ? "Zapisywanie..." : "Wyślij zapytanie"} <Check size={18} />
                   </button>
 
                   {submitMessage && (

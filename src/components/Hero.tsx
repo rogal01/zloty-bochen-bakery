@@ -15,14 +15,14 @@ export default function Hero() {
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
         <span className="text-bakery-gold tracking-widest uppercase text-sm font-semibold mb-4 block">
-          Fikcyjny projekt portfolio dla lokalnej piekarni premium
+          Fikcyjna lokalna piekarnia premium
         </span>
         <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 drop-shadow-md">
           Złoty Bochen<br />na co dzień i od święta
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-sans font-light">
           Rzemieślnicze pieczywo, torty artystyczne i wygodny konfigurator zamówień dla nowoczesnej,
-          rodzinnej marki stworzonej jako pełny pokaz możliwości freelancera.
+          rodzinnej piekarni z lokalnymi pracowniami.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       demoMode: true,
-      message: 'Zapytanie demo przyjęte bez zapisu w bazie danych.',
+      message: 'Zapytanie przyjęte do kontaktu z cukiernią.',
     }, { status: 202 });
   }
 }

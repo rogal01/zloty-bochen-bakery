@@ -7,7 +7,7 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif'
 
 export const metadata: Metadata = {
   title: 'Złoty Bochen | Piekarnia i torty artystyczne',
-  description: 'Fikcyjna strona portfolio dla lokalnej piekarni premium: rzemieślnicze pieczywo, torty artystyczne, 6 lokalizacji i konfigurator zamówień przez internet.',
+  description: 'Fikcyjna lokalna piekarnia premium: rzemieślnicze pieczywo, torty artystyczne, 6 lokalizacji i konfigurator zamówień przez internet.',
 };
 
 export default function RootLayout({
