@@ -1,37 +1,23 @@
-# Romanowski Bakery
+# Złoty Bochen Bakery
 
-Business website concept for a bakery/cake shop with a product offer, locations, responsive layout, and an online cake configurator.
+Portfolio project for a fictional premium bakery. The goal is to show a freelance-ready business website, not just a pretty landing page: the flagship app includes product storytelling, local pickup locations, API routes, a Prisma data model, and a 3D cake configurator.
 
-This project is meant to show a practical full-stack website for a local business: not only a visual landing page, but also a configurable order flow, API routes, and database-backed content.
+## What This Demonstrates
 
-## Portfolio Summary
+- **Flagship full-stack site:** Next.js, React, TypeScript, Tailwind CSS, Prisma, SQLite, API routes, and React Three Fiber.
+- **Client-friendly case study:** `docs/` is a GitHub Pages portfolio page explaining the work and linking to demos.
+- **Static version:** `docs/static/` shows a no-build HTML/CSS/JS version suitable for GitHub Pages.
+- **PHP version:** `php-variant/` shows a cheap-hosting-friendly cake inquiry form.
+- **Anonymized brand:** Złoty Bochen is fictional, so the public repository does not look like an official website for a real company.
 
-- Modern business website built with **Next.js**, **React**, and **TypeScript**.
-- Product and location sections designed for a real local company.
-- Cake configurator with shape, weight, flavor, text, pickup date, and price summary.
-- 3D cake preview using React Three Fiber / Three.js.
-- API routes for flavors, locations, and orders.
-- Prisma schema for locations, flavors, and order records.
-- Responsive structure suitable for desktop and mobile screenshots.
+## Project Structure
 
-## Stack
-
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- Prisma
-- SQLite
-- React Three Fiber / Three.js
-- Lucide React
-
-## Useme Screenshot Plan
-
-1. Hero section.
-2. Product/offers section.
-3. Cake configurator with 3D preview.
-4. Order/pickup step.
-5. Mobile layout.
+```text
+src/                 Next.js flagship app
+prisma/              SQLite schema and fictional seed data
+docs/                GitHub Pages portfolio and static variant
+php-variant/         Small server-rendered PHP inquiry form
+```
 
 ## Local Development
 
@@ -42,6 +28,13 @@ npm run dev
 
 Open <http://localhost:3000>.
 
+Seed the demo database when needed:
+
+```bash
+npx prisma db push
+npx prisma db seed
+```
+
 ## Production Check
 
 ```bash
@@ -49,11 +42,17 @@ npm run lint
 npm run build
 ```
 
-## Portfolio Notes
+## PHP Variant
 
-Before publishing this repository publicly:
+```bash
+cd php-variant
+php -S localhost:8080
+```
 
-- Commit the current untracked `src/components`, `src/app/api`, `src/lib`, and `prisma` files.
-- Do not publish local database files with private/test orders.
-- Replace placeholder images with final screenshots or generated assets if needed.
-- Verify Polish text in the browser before taking screenshots.
+Open <http://localhost:8080>.
+
+## Publishing Notes
+
+- Keep `.env`, `dev.db`, and `prisma/dev.db` private; they are ignored by git.
+- Use GitHub Pages from the `docs/` folder for the public case study.
+- Use Vercel or another Node-capable host for the full Next.js app because API routes and Prisma are not supported by GitHub Pages.

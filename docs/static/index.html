@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Złoty Bochen | Static bakery site</title>
+    <meta name="description" content="No-build static HTML/CSS/JS bakery website variant for GitHub Pages." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a href="#" class="logo">Złoty Bochen</a>
+      <nav aria-label="Nawigacja wariantu statycznego">
+        <a href="#menu">Oferta</a>
+        <a href="#order">Zapytanie</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="label">Static HTML/CSS/JS demo</p>
+          <h1>Prosty wariant strony dla piekarni bez backendu.</h1>
+          <p>
+            Ta wersja pokazuje, jak wygląda lekki landing page pod GitHub Pages lub tani hosting statyczny.
+            Formularz jest demonstracyjny i nie zapisuje danych.
+          </p>
+          <a class="button" href="#order">Zapytaj o tort</a>
+        </div>
+      </section>
+
+      <section id="menu" class="menu">
+        <article>
+          <span>01</span>
+          <h2>Pieczywo rzemieślnicze</h2>
+          <p>Chleby na zakwasie, bułki śniadaniowe i sezonowe wypieki.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>Torty okolicznościowe</h2>
+          <p>Smaki klasyczne i premium, personalizowany napis oraz odbiór w pracowni.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h2>Click & Collect</h2>
+          <p>Szybka ścieżka zamówienia bez pełnej aplikacji i bez bazy danych.</p>
+        </article>
+      </section>
+
+      <section id="order" class="order">
+        <div>
+          <p class="label">Formularz demo</p>
+          <h2>Zapytanie statyczne</h2>
+          <p>Po kliknięciu przycisku strona pokazuje status demo. W produkcji można podpiąć Formspree, Basin albo mailto.</p>
+        </div>
+        <form id="static-form">
+          <label>
+            Imię
+            <input name="name" required placeholder="Anna Kowalska" />
+          </label>
+          <label>
+            Kontakt
+            <input name="contact" required placeholder="anna@example.com" />
+          </label>
+          <label>
+            Smak
+            <select name="flavor">
+              <option>Royal Choco</option>
+              <option>Pistacja</option>
+              <option>Rafaello</option>
+            </select>
+          </label>
+          <label>
+            Wiadomość
+            <textarea name="message" rows="4" placeholder="Tort na sobotę, ok. 15 porcji"></textarea>
+          </label>
+          <button type="submit">Pokaż status demo</button>
+          <p id="form-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

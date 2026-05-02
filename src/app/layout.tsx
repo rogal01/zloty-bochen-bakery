@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
 
 export const metadata: Metadata = {
-  title: 'Cukiernia-Piekarnia Romanowski | Od 1969',
-  description: 'Tradycja z serca Goworowa. Piekarnia i cukiernia Romanowski oferuje rzemieślnicze wypieki, pieczywo oraz torty artystyczne Poezja Smaku. 22 lokalizacje.',
+  title: 'Złoty Bochen | Piekarnia i torty artystyczne',
+  description: 'Fikcyjna strona portfolio dla lokalnej piekarni premium: rzemieślnicze pieczywo, torty artystyczne, 6 lokalizacji i konfigurator zamówień online.',
 };
 
 export default function RootLayout({

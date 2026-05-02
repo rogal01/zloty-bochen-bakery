@@ -3,20 +3,19 @@ import prisma from "@/lib/prisma";
 
 export default async function Locations() {
   const locations = await prisma.location.findMany({
-    orderBy: { city: 'asc' }
+    orderBy: { city: "asc" },
   });
 
   return (
     <section id="lokalizacje" className="py-24 bg-future-dusk text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <div className="text-center mb-16">
           <span className="text-bakery-gold uppercase tracking-widest text-sm font-semibold mb-4 block flex items-center justify-center gap-2">
-            <MapPin size={16} /> Nasza Sieć
+            <MapPin size={16} /> Fikcyjna sieć odbioru
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">22 Lokalizacje dla Ciebie</h2>
+          <h2 className="text-4xl md:text-5xl font-serif mb-6">6 Lokalizacji dla Ciebie</h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto font-light">
-            Znajdź najbliższą piekarnię lub cukiernię Romanowski i odbierz swoje zamówienie 
+            Znajdź najbliższą pracownię Złotego Bochna i odbierz swoje zamówienie
             dzięki wygodnemu systemowi Click & Collect.
           </p>
         </div>
@@ -32,7 +31,7 @@ export default async function Locations() {
                   </span>
                 )}
               </div>
-              
+
               <div className="space-y-3 text-white/80 text-sm">
                 <div className="flex items-start gap-3">
                   <MapPin size={16} className="mt-0.5 text-bakery-gold shrink-0" />
@@ -55,13 +54,12 @@ export default async function Locations() {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
           <button className="text-bakery-gold border border-bakery-gold px-8 py-3 rounded-full hover:bg-bakery-gold hover:text-future-dusk transition-colors font-medium">
             Pokaż wszystkie lokalizacje na mapie
           </button>
         </div>
-
       </div>
     </section>
   );
