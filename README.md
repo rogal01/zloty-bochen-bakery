@@ -6,6 +6,7 @@ Portfolio project for a fictional premium bakery. The goal is to show a freelanc
 
 - **Flagship full-stack site:** Next.js, React, TypeScript, Tailwind CSS, Prisma, SQLite, API routes, and React Three Fiber.
 - **Client-friendly case study:** `docs/` is a GitHub Pages portfolio page explaining the work and linking to demos.
+- **Portfolio screenshots:** `docs/screenshots/` contains ready-to-use example shots from the running site.
 - **Static version:** `docs/static/` shows a no-build HTML/CSS/JS version suitable for GitHub Pages.
 - **PHP version:** `php-variant/` shows a cheap-hosting-friendly cake inquiry form.
 - **Python backend:** `services/fastapi-orders/` shows a FastAPI service with SQLite-backed flavors, locations, and orders.
