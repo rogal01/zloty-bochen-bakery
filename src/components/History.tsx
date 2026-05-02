@@ -3,7 +3,7 @@ export default function History() {
     { year: "1989", title: "Pierwszy wypiek", desc: "Start rodzinnej piekarni na bazie zakwasu, drożdżówek i prostych receptur." },
     { year: "2004", title: "Pracownia tortów", desc: "Rozszerzenie oferty o torty okolicznościowe, monoporcje i słodkie stoły." },
     { year: "2016", title: "Sieć lokalna", desc: "Otwarcie nowych punktów odbioru w fikcyjnych miejscowościach regionu." },
-    { year: "2026", title: "Zamówienia online", desc: "Nowy konfigurator 3D pokazuje, jak lokalna marka może sprzedawać wygodniej." },
+    { year: "2026", title: "Zamówienia przez internet", desc: "Nowy konfigurator 3D pokazuje, jak lokalna marka może sprzedawać wygodniej." },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function History() {
           </div>
 
           <div>
-            <span className="text-bakery-gold uppercase tracking-widest text-sm font-semibold mb-4 block">Case study lokalnego biznesu</span>
+            <span className="text-bakery-gold uppercase tracking-widest text-sm font-semibold mb-4 block">Studium lokalnego biznesu</span>
             <h2 className="text-4xl md:text-5xl font-serif text-future-dusk mb-8 leading-tight">
               Od piekarni rodzinnej<br />do cyfrowych zamówień
             </h2>

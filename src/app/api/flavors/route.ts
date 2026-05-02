@@ -9,7 +9,7 @@ export async function GET() {
     });
     return NextResponse.json(flavors);
   } catch (error) {
-    console.error('Failed to fetch flavors:', error);
+    console.error('Nie udało się pobrać smaków:', error);
     return NextResponse.json(demoFlavors);
   }
 }

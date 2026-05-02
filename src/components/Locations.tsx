@@ -10,7 +10,7 @@ export default async function Locations() {
       orderBy: { city: "asc" },
     });
   } catch (error) {
-    console.error("Failed to fetch locations, using demo data:", error);
+    console.error("Nie udało się pobrać lokalizacji, używam danych demo:", error);
   }
 
   return (
@@ -23,7 +23,7 @@ export default async function Locations() {
           <h2 className="text-4xl md:text-5xl font-serif mb-6">6 Lokalizacji dla Ciebie</h2>
           <p className="text-lg text-white/80 max-w-2xl mx-auto font-light">
             Znajdź najbliższą pracownię Złotego Bochna i odbierz swoje zamówienie
-            dzięki wygodnemu systemowi Click & Collect.
+            dzięki wygodnemu odbiorowi zamówień złożonych przez internet.
           </p>
         </div>
 

@@ -5,7 +5,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // In a real application, you would validate the incoming data with Zod or Joi here.
+    // W prawdziwej aplikacji dane wejściowe można tu zwalidować przez Zod albo Joi.
     
     const newOrder = await prisma.order.create({
       data: {
@@ -24,11 +24,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, order: newOrder }, { status: 201 });
   } catch (error) {
-    console.error('Failed to create order:', error);
+    console.error('Nie udało się utworzyć zamówienia:', error);
     return NextResponse.json({
       success: true,
       demoMode: true,
-      message: 'Demo order accepted without database persistence.',
+      message: 'Zapytanie demo przyjęte bez zapisu w bazie danych.',
     }, { status: 202 });
   }
 }
@@ -40,7 +40,7 @@ export async function GET() {
     });
     return NextResponse.json(orders);
   } catch (error) {
-    console.error('Failed to fetch orders:', error);
-    return NextResponse.json({ error: 'Failed to fetch orders' }, { status: 500 });
+    console.error('Nie udało się pobrać zamówień:', error);
+    return NextResponse.json({ error: 'Nie udało się pobrać zamówień' }, { status: 500 });
   }
 }

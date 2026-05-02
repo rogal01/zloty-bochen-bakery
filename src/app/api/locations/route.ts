@@ -9,7 +9,7 @@ export async function GET() {
     });
     return NextResponse.json(locations);
   } catch (error) {
-    console.error('Failed to fetch locations:', error);
+    console.error('Nie udało się pobrać lokalizacji:', error);
     return NextResponse.json(demoLocations);
   }
 }

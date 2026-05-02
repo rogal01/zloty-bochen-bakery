@@ -12,7 +12,7 @@ export default function Footer() {
                 ZŁOTY BOCHEN
               </span>
               <span className="text-[11px] tracking-[0.3em] uppercase text-bakery-gold mt-1">
-                Portfolio concept
+                Koncepcja portfolio
               </span>
             </Link>
             <p className="font-light mb-8 max-w-sm">

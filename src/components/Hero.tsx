@@ -30,13 +30,13 @@ export default function Hero() {
             href="#zamow"
             className="bg-future-dusk text-white px-8 py-4 rounded-full font-medium hover:bg-future-dusk/90 transition-all flex items-center gap-2 text-lg hover-lift shadow-lg"
           >
-            Zamów Tort Online <ChevronRight size={20} />
+            Zamów tort przez internet <ChevronRight size={20} />
           </Link>
           <Link
             href="#lokalizacje"
             className="bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all flex items-center gap-2 text-lg"
           >
-            Nasze Pracownie
+            Nasze pracownie
           </Link>
         </div>
       </div>
