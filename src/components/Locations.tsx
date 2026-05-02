@@ -1,10 +1,17 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import prisma from "@/lib/prisma";
+import { demoLocations } from "@/lib/demo-data";
 
 export default async function Locations() {
-  const locations = await prisma.location.findMany({
-    orderBy: { city: "asc" },
-  });
+  let locations = demoLocations;
+
+  try {
+    locations = await prisma.location.findMany({
+      orderBy: { city: "asc" },
+    });
+  } catch (error) {
+    console.error("Failed to fetch locations, using demo data:", error);
+  }
 
   return (
     <section id="lokalizacje" className="py-24 bg-future-dusk text-white">

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { demoFlavors } from '@/lib/demo-data';
 
 export async function GET() {
   try {
@@ -9,6 +10,6 @@ export async function GET() {
     return NextResponse.json(flavors);
   } catch (error) {
     console.error('Failed to fetch flavors:', error);
-    return NextResponse.json({ error: 'Failed to fetch flavors' }, { status: 500 });
+    return NextResponse.json(demoFlavors);
   }
 }

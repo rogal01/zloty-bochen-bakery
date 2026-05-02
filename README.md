@@ -56,3 +56,4 @@ Open <http://localhost:8080>.
 - Keep `.env`, `dev.db`, and `prisma/dev.db` private; they are ignored by git.
 - Use GitHub Pages from the `docs/` folder for the public case study.
 - Use Vercel or another Node-capable host for the full Next.js app because API routes and Prisma are not supported by GitHub Pages.
+- One-click Vercel import: <https://vercel.com/new/clone?repository-url=https://github.com/rogal01/zloty-bochen-bakery>
