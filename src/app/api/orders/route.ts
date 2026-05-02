@@ -5,8 +5,6 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // W prawdziwej aplikacji dane wejściowe można tu zwalidować przez Zod albo Joi.
-    
     const newOrder = await prisma.order.create({
       data: {
         customerName: body.customerName || 'Gość',
@@ -27,7 +25,7 @@ export async function POST(request: Request) {
     console.error('Nie udało się utworzyć zamówienia:', error);
     return NextResponse.json({
       success: true,
-      demoMode: true,
+      fallbackMode: true,
       message: 'Zapytanie przyjęte do kontaktu z cukiernią.',
     }, { status: 202 });
   }

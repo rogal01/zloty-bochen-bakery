@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { demoLocations } from '@/lib/demo-data';
+import { fallbackLocations } from '@/lib/fallback-data';
 
 export async function GET() {
   try {
@@ -10,6 +10,6 @@ export async function GET() {
     return NextResponse.json(locations);
   } catch (error) {
     console.error('Nie udało się pobrać lokalizacji:', error);
-    return NextResponse.json(demoLocations);
+    return NextResponse.json(fallbackLocations);
   }
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Cake,
   Calendar,
@@ -17,71 +17,21 @@ import {
   Users,
 } from "lucide-react";
 import CakeModel from "./CakeModel";
-
-const SHAPES = [
-  { id: "round", label: "Okrągły", note: "Klasyczny i elegancki" },
-  { id: "square", label: "Kwadratowy", note: "Nowoczesny, łatwy do krojenia" },
-];
-
-const SIZES = [
-  { id: "1.2", label: "16 cm", weight: "1.2", slices: 10, price: 0 },
-  { id: "2.0", label: "20 cm", weight: "2.0", slices: 18, price: 80 },
-  { id: "3.0", label: "24 cm", weight: "3.0", slices: 28, price: 160 },
-];
-
-const FROSTINGS = [
-  { id: "buttercream", label: "Krem maślany", desc: "Gładkie boki i dekoracyjna obwódka", price: 0 },
-  { id: "cream-cheese", label: "Krem śmietankowy", desc: "Jaśniejszy wierzch z miękkimi rozetami", price: 20 },
-  { id: "ganache", label: "Ganache czekoladowy", desc: "Ciemna polewa z widocznymi zaciekami", price: 30 },
-  { id: "naked", label: "Lekki tynk", desc: "Cienka warstwa kremu z widocznym ciastem", price: 0 },
-];
-
-const FROSTING_COLORS = [
-  { id: "#fff7ed", label: "Wanilia", price: 0 },
-  { id: "#f2e3e6", label: "Róż pudrowy", price: 10 },
-  { id: "#c69c6d", label: "Złoty karmel", price: 15 },
-  { id: "#93c572", label: "Pistacja", price: 10 },
-  { id: "#3d1e11", label: "Czekolada", price: 0 },
-];
-
-const DECORATIONS = [
-  {
-    id: "seasonal-berries",
-    label: "Owoce sezonowe",
-    desc: "Truskawki, maliny i borówki ułożone przy rancie",
-    price: 45,
-  },
-  {
-    id: "orchard-fruit",
-    label: "Owoce sadownicze",
-    desc: "Brzoskwinia, kiwi i różowe akcenty owocowe",
-    price: 45,
-  },
-  {
-    id: "cream-flowers",
-    label: "Kwiaty kremowe",
-    desc: "Jasne i różowe rozety z kremu wokół góry tortu",
-    price: 35,
-  },
-  {
-    id: "wafer-text",
-    label: "Napis na opłatku",
-    desc: "Jasny opłatek pod napisem, żeby lepiej ocenić efekt",
-    price: 25,
-  },
-];
-
-const DELIVERY_OPTIONS = [
-  { id: "pickup", label: "Odbiór osobisty", desc: "Najbezpieczniejsza opcja dla tortów piętrowych", price: 0 },
-  { id: "local", label: "Dostawa lokalna", desc: "Dostawa w obrębie miasta", price: 35 },
-];
-
-const PICKUP_LOCATIONS = [
-  "Nowe Brzegi, ul. Miodowa 12",
-  "Słoneczna, Rynek 4",
-  "Młynary, ul. Zbożowa 8",
-  "Lipowe Pole, ul. Cukiernicza 3",
-];
+import {
+  DECORATIONS,
+  DELIVERY_OPTIONS,
+  FROSTINGS,
+  FROSTING_COLORS,
+  INITIAL_CONFIG,
+  PICKUP_LOCATIONS,
+  SHAPES,
+  SIZES,
+  formatPrice,
+  translateCategory,
+  type CakeConfig,
+  type Flavor,
+} from "./config";
+import { BuilderPanel, ChoiceButton, ReviewLine, SectionLabel, Stat, cx } from "./parts";
 
 const STEPS = [
   { id: 1, label: "Baza", icon: Cake },
@@ -90,64 +40,13 @@ const STEPS = [
   { id: 4, label: "Podsumowanie", icon: ClipboardCheck },
 ];
 
-type Flavor = {
-  id: number;
-  name: string;
-  description: string;
-  category: string;
-};
-
-type Config = {
-  tiers: number;
-  shape: string;
-  size: string;
-  flavor: string;
-  frosting: string;
-  frostingColor: string;
-  decorations: string[];
-  text: string;
-  delivery: string;
-  date: string;
-  customerName: string;
-  customerPhone: string;
-  pickupLocation: string;
-};
-
-function cx(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
-
-function formatPrice(value: number) {
-  return `${value} zł`;
-}
-
-function translateCategory(category: string) {
-  if (category.toLowerCase() === "classic") return "Klasyczny";
-  if (category.toLowerCase() === "premium") return "Premium";
-  return category;
-}
-
 export default function Configurator() {
   const [step, setStep] = useState(1);
   const [flavors, setFlavors] = useState<Flavor[]>([]);
   const [loadingFlavors, setLoadingFlavors] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
-  const [config, setConfig] = useState<Config>({
-    tiers: 1,
-    shape: "round",
-    size: "1.2",
-    flavor: "Royal Choco",
-    frosting: "buttercream",
-    frostingColor: "#fff7ed",
-    decorations: [],
-    text: "",
-    delivery: "pickup",
-    date: "",
-    customerName: "",
-    customerPhone: "",
-    pickupLocation: PICKUP_LOCATIONS[0],
-  });
+  const [config, setConfig] = useState<CakeConfig>(INITIAL_CONFIG);
 
   useEffect(() => {
     const fetchFlavors = async () => {
@@ -187,7 +86,7 @@ export default function Configurator() {
   const servings = selectedSize.slices + (config.tiers - 1) * 12;
   const height = config.tiers * 9;
 
-  const updateConfig = (updates: Partial<Config>) => {
+  const updateConfig = (updates: Partial<CakeConfig>) => {
     setSubmitMessage("");
     setConfig((current) => ({ ...current, ...updates }));
   };
@@ -327,7 +226,7 @@ export default function Configurator() {
 
           <div className="rounded-lg border border-slate-100 bg-white p-5 shadow-xl md:p-8">
             {step === 1 && (
-              <BuilderStep title="Baza tortu" kicker="Kształt, poziomy i smak" icon={<Cake size={22} />}>
+              <BuilderPanel title="Baza tortu" kicker="Kształt, poziomy i smak" icon={<Cake size={22} />}>
                 <div className="grid gap-6">
                   <div>
                     <SectionLabel title="Liczba poziomów" hint="Cena, wysokość i liczba porcji aktualizują się od razu." />
@@ -408,11 +307,11 @@ export default function Configurator() {
                     </div>
                   </div>
                 </div>
-              </BuilderStep>
+              </BuilderPanel>
             )}
 
             {step === 2 && (
-              <BuilderStep title="Dekoracje" kicker="Krem, kolor, owoce i opłatek" icon={<Palette size={22} />}>
+              <BuilderPanel title="Dekoracje" kicker="Krem, kolor, owoce i opłatek" icon={<Palette size={22} />}>
                 <div className="grid gap-6">
                   <div>
                     <SectionLabel title="Styl wykończenia" hint="Każdy krem ma własny wygląd w podglądzie 3D." required />
@@ -498,11 +397,11 @@ export default function Configurator() {
                     </div>
                   )}
                 </div>
-              </BuilderStep>
+              </BuilderPanel>
             )}
 
             {step === 3 && (
-              <BuilderStep title="Odbiór" kicker="Termin, miejsce i kontakt" icon={<Truck size={22} />}>
+              <BuilderPanel title="Odbiór" kicker="Termin, miejsce i kontakt" icon={<Truck size={22} />}>
                 <div className="grid gap-6">
                   <div>
                     <SectionLabel title="Sposób odbioru" />
@@ -572,11 +471,11 @@ export default function Configurator() {
                     Torty piętrowe i z dekoracjami wymagają minimum 48 godzin przygotowania. Formularz zapisuje zapytanie i pozwala cukierni potwierdzić szczegóły.
                   </p>
                 </div>
-              </BuilderStep>
+              </BuilderPanel>
             )}
 
             {step === 4 && (
-              <BuilderStep title="Podsumowanie" kicker="Sprawdź konfigurację" icon={<ClipboardCheck size={22} />}>
+              <BuilderPanel title="Podsumowanie" kicker="Sprawdź konfigurację" icon={<ClipboardCheck size={22} />}>
                 <div className="grid gap-5">
                   <div className="grid gap-3 sm:grid-cols-2">
                     <ReviewLine label="Poziomy" value={`${config.tiers}`} />
@@ -606,7 +505,7 @@ export default function Configurator() {
                     </p>
                   )}
                 </div>
-              </BuilderStep>
+              </BuilderPanel>
             )}
 
             <div className="mt-8 flex gap-3 border-t border-slate-100 pt-6">
@@ -631,111 +530,5 @@ export default function Configurator() {
         </div>
       </div>
     </section>
-  );
-}
-
-function BuilderStep({
-  title,
-  kicker,
-  icon,
-  children,
-}: {
-  title: string;
-  kicker: string;
-  icon: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <div className="mb-7 flex items-start gap-4">
-        <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-transcendent-pink text-future-dusk">
-          {icon}
-        </div>
-        <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-bakery-gold">{kicker}</span>
-          <h3 className="font-serif text-3xl text-future-dusk">{title}</h3>
-        </div>
-      </div>
-      {children}
-    </div>
-  );
-}
-
-function SectionLabel({ title, hint, required }: { title: string; hint?: string; required?: boolean }) {
-  return (
-    <div className="mb-3">
-      <h4 className="font-bold text-future-dusk">
-        {title} {required && <span className="text-bakery-gold">*</span>}
-      </h4>
-      {hint && <p className="mt-1 text-sm text-slate-500">{hint}</p>}
-    </div>
-  );
-}
-
-function ChoiceButton({
-  active,
-  title,
-  description,
-  badge,
-  price,
-  onClick,
-}: {
-  active: boolean;
-  title: string;
-  description: string;
-  badge?: string;
-  price?: number;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={cx(
-        "min-h-24 rounded-lg border-2 p-4 text-left transition",
-        active ? "border-future-dusk bg-future-dusk/5 ring-4 ring-future-dusk/10" : "border-slate-100 hover:border-bakery-gold"
-      )}
-    >
-      <span className="mb-2 flex items-start justify-between gap-3">
-        <span className="font-bold text-future-dusk">{title}</span>
-        {active && <Check size={18} className="shrink-0 text-bakery-gold" />}
-      </span>
-      <span className="block text-sm leading-relaxed text-slate-500">{description}</span>
-      <span className="mt-3 flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-wider">
-        {badge ? <span className="text-bakery-gold">{badge}</span> : <span />}
-        {typeof price === "number" && <span className="text-slate-400">{price > 0 ? `+${formatPrice(price)}` : "w cenie"}</span>}
-      </span>
-    </button>
-  );
-}
-
-function Stat({
-  icon,
-  label,
-  value,
-  strong,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-  strong?: boolean;
-}) {
-  return (
-    <div className="rounded-lg border border-white/70 bg-white p-4 shadow-sm">
-      <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400">
-        {icon} {label}
-      </div>
-      <div className={cx("font-serif text-2xl", strong ? "text-bakery-gold" : "text-future-dusk")}>{value}</div>
-    </div>
-  );
-}
-
-function ReviewLine({ label, value, strong }: { label: string; value: string; strong?: boolean }) {
-  return (
-    <div className="rounded-lg border border-slate-100 bg-bakery-cream p-4">
-      <div className="text-xs font-bold uppercase tracking-widest text-slate-400">{label}</div>
-      <div className={cx("mt-1 font-medium", strong ? "font-serif text-2xl text-bakery-gold" : "text-future-dusk")}>{value}</div>
-    </div>
   );
 }

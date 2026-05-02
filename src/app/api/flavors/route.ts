@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import { demoFlavors } from '@/lib/demo-data';
+import { fallbackFlavors } from '@/lib/fallback-data';
 
 export async function GET() {
   try {
@@ -10,6 +10,6 @@ export async function GET() {
     return NextResponse.json(flavors);
   } catch (error) {
     console.error('Nie udało się pobrać smaków:', error);
-    return NextResponse.json(demoFlavors);
+    return NextResponse.json(fallbackFlavors);
   }
 }

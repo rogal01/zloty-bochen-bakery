@@ -1,16 +1,16 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import prisma from "@/lib/prisma";
-import { demoLocations } from "@/lib/demo-data";
+import { fallbackLocations } from "@/lib/fallback-data";
 
 export default async function Locations() {
-  let locations = demoLocations;
+  let locations = fallbackLocations;
 
   try {
     locations = await prisma.location.findMany({
       orderBy: { city: "asc" },
     });
   } catch (error) {
-    console.error("Nie udało się pobrać lokalizacji, używam danych demo:", error);
+    console.error("Nie udało się pobrać lokalizacji, używam danych zapasowych:", error);
   }
 
   return (

@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client'
-import { demoFlavors, demoLocations } from '../src/lib/demo-data'
+import { fallbackFlavors, fallbackLocations } from '../src/lib/fallback-data'
 
 const prisma = new PrismaClient()
 
@@ -8,21 +8,21 @@ async function main() {
   await prisma.flavor.deleteMany()
   await prisma.location.deleteMany()
 
-  for (const { id, ...loc } of demoLocations) {
+  for (const { id, ...loc } of fallbackLocations) {
     void id
     await prisma.location.create({
       data: loc,
     });
   }
 
-  for (const { id, ...flav } of demoFlavors) {
+  for (const { id, ...flav } of fallbackFlavors) {
     void id
     await prisma.flavor.create({
       data: flav,
     });
   }
 
-  console.log('Demo database seeded for Złoty Bochen.');
+  console.log('Seeded Złoty Bochen data.');
 }
 
 main()
