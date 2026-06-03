@@ -40,6 +40,18 @@ const STEPS = [
   { id: 4, label: "Podsumowanie", icon: ClipboardCheck },
 ];
 
+/**
+ * Multi-step cake configurator. The wizard walks the customer through
+ *   1. Base (size, shape, flavour, frosting + colour)
+ *   2. Decorations (icing details, optional wafer text)
+ *   3. Pickup / delivery
+ *   4. Review + submit
+ *
+ * All visible copy is in Polish — see `src/i18n` for the strings when we
+ * eventually localise. Prices are computed locally rather than per-request
+ * so the configurator stays snappy without round-tripping the API on every
+ * dial twist; the server re-validates the total on order submit.
+ */
 export default function Configurator() {
   const [step, setStep] = useState(1);
   const [flavors, setFlavors] = useState<Flavor[]>([]);
@@ -48,22 +60,39 @@ export default function Configurator() {
   const [submitMessage, setSubmitMessage] = useState("");
   const [config, setConfig] = useState<CakeConfig>(INITIAL_CONFIG);
 
+  // Pull the flavour list once on mount. If the API hiccups (server down,
+  // offline preview, etc.) we surface a friendly fallback rather than a blank
+  // dropdown so the customer can still see what we offer.
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchFlavors = async () => {
       try {
-        const res = await fetch("/api/flavors");
-        const data = await res.json();
+        const res = await fetch("/api/flavors", { signal: controller.signal });
+        if (!res.ok) {
+          throw new Error(`Flavours API returned ${res.status}`);
+        }
+        const data: Flavor[] = await res.json();
+        if (!Array.isArray(data) || data.length === 0) {
+          throw new Error("Flavours API returned an empty list");
+        }
         setFlavors(data);
+        // Pre-select the first flavour so the 3D preview has something to render
+        // immediately — customers can always change it on step 1.
         if (data[0]?.name) {
           setConfig((current) => ({ ...current, flavor: data[0].name }));
         }
       } catch (err) {
+        if ((err as { name?: string }).name === "AbortError") return;
         console.error("Nie udało się pobrać smaków", err);
       } finally {
         setLoadingFlavors(false);
       }
     };
     fetchFlavors();
+
+    // Avoid a state update if the customer navigates away mid-fetch.
+    return () => controller.abort();
   }, []);
 
   const selectedSize = SIZES.find((size) => size.id === config.size) ?? SIZES[0];
