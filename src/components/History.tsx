@@ -1,13 +1,13 @@
 export default function History() {
   const milestones = [
-    { year: "1989", title: "Pierwszy wypiek", desc: "Start rodzinnej piekarni na bazie zakwasu, drożdżówek i prostych receptur." },
-    { year: "2004", title: "Pracownia tortów", desc: "Rozszerzenie oferty o torty okolicznościowe, monoporcje i słodkie stoły." },
-    { year: "2016", title: "Sieć lokalna", desc: "Otwarcie nowych punktów odbioru w fikcyjnych miejscowościach regionu." },
-    { year: "2026", title: "Zamówienia przez internet", desc: "Nowy konfigurator 3D pokazuje, jak lokalna marka może sprzedawać wygodniej." },
+    { year: "1989", title: "Pierwszy piec szamotowy", desc: "Założenie piekarni przez rodzinę Romanowskich na Warmii. Narodziny 35-letniego zakwasu żytniego, który pielęgnujemy do dziś." },
+    { year: "2004", title: "Manufaktura Tortów Artystycznych", desc: "Dołączenie mistrzów cukiernictwa: start autorskiej linii tortów weselnych, monoporcji i naturalnych musów z owoców leśnych." },
+    { year: "2016", title: "Sieć 6 Pracowni Rzemieślniczych", desc: "Otwarcie lokalnych pracowni w Nowych Brzegach, Słonecznej, Młynarach i Lipowym Polu, by pieczywo trafiało do Klientów prosto z pieca." },
+    { year: "2026", title: "Konfigurator 3D i Świeże Wypieki", desc: "Połączenie bezkompromisowej tradycji wypieku z nowatorskim narzędziem do projektowania tortów artystycznych online." },
   ];
 
   return (
-    <section id="nasza-historia" className="py-24 bg-white relative overflow-hidden">
+    <section id="nasza-historia" className="py-24 bg-white relative overflow-hidden scroll-mt-12">
       <div className="absolute top-0 right-0 w-64 h-64 bg-transcendent-pink/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,20 +19,24 @@ export default function History() {
             >
               <div className="absolute inset-0 bg-[#2b2b4d]/20 mix-blend-multiply" />
             </div>
-            <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-sm p-6 rounded-xl border border-white/50">
-              <h3 className="font-serif text-2xl text-future-dusk font-bold mb-2">Fikcyjna marka, realny scenariusz</h3>
-              <p className="text-slate-600">Złoty Bochen to fikcyjna piekarnia z własną historią, lokalnymi pracowniami i zamówieniami tortów.</p>
+            <div className="absolute bottom-8 left-8 right-8 bg-white/95 backdrop-blur-sm p-6 rounded-xl border border-white/50 shadow-md">
+              <h3 className="font-serif text-2xl text-future-dusk font-bold mb-2">35 Lat Wierni Tradycji</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Piekarnia Romanowski to rodzinna manufaktura z Warmii, gdzie czas dojrzewania ciasta i szacunek do ziarna są ważniejsze od pośpiechu.
+              </p>
             </div>
           </div>
 
           <div>
-            <span className="text-bakery-gold uppercase tracking-widest text-sm font-semibold mb-4 block">Studium lokalnego biznesu</span>
-            <h2 className="text-4xl md:text-5xl font-serif text-future-dusk mb-8 leading-tight">
-              Od piekarni rodzinnej<br />do cyfrowych zamówień
+            <span className="text-bakery-gold uppercase tracking-widest text-xs font-bold mb-3 block">
+              Dziedzictwo Rzemiosła & Pasja
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif text-future-dusk mb-6 leading-tight">
+              Od pierwszego bochenka<br />do mistrzowskiego cukiernictwa
             </h2>
-            <p className="text-lg text-slate-600 mb-12 font-light leading-relaxed">
-              To fikcyjna, realistycznie opisana piekarnia premium: z rzemieślniczym pieczywem,
-              tortami artystycznymi, lokalnymi punktami odbioru oraz konfiguratorem tortu z podglądem 3D.
+            <p className="text-base md:text-lg text-slate-600 mb-10 font-light leading-relaxed">
+              Nie szukamy dróg na skróty. Nasz zakwas ma ponad 35 lat, mąka pochodzi z tradycyjnych młynów żarnowych, 
+              a torty artystyczne przygotowujemy wyłącznie na prawdziwej śmietance 36% i belgijskiej czekoladzie.
             </p>
 
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-bakery-gold/30 before:to-transparent">
@@ -44,7 +48,7 @@ export default function History() {
                   <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover-lift">
                     <div className="font-serif text-2xl font-bold text-bakery-gold mb-1">{item.year}</div>
                     <h4 className="font-bold text-future-dusk text-lg mb-2">{item.title}</h4>
-                    <p className="text-slate-600 text-sm">{item.desc}</p>
+                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -55,3 +59,4 @@ export default function History() {
     </section>
   );
 }
+

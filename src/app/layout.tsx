@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Outfit, Playfair_Display } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' });
 
 export const metadata: Metadata = {
-  title: 'Złoty Bochen | Piekarnia i torty artystyczne',
-  description: 'Fikcyjna lokalna piekarnia premium: rzemieślnicze pieczywo, torty artystyczne, 6 lokalizacji i konfigurator zamówień przez internet.',
+  title: 'Piekarnia & Cukiernia Romanowski | Tradycja od 1989',
+  description: 'Rzemieślnicze pieczywo na 35-letnim zakwasie, autorskie torty artystyczne z konfiguratorem 3D oraz 6 lokalnych pracowni na Warmii.',
 };
 
 export default function RootLayout({
@@ -17,9 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#fdfaf6] text-slate-800`}>
+      <body className={`${outfit.variable} ${playfair.variable} font-sans antialiased bg-[#fdfaf6] text-slate-800`}>
         {children}
       </body>
     </html>
   );
 }
+

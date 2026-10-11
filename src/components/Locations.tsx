@@ -14,16 +14,16 @@ export default async function Locations() {
   }
 
   return (
-    <section id="lokalizacje" className="py-24 bg-future-dusk text-white">
+    <section id="lokalizacje" className="py-24 bg-future-dusk text-white scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-bakery-gold uppercase tracking-widest text-sm font-semibold mb-4 block flex items-center justify-center gap-2">
-            <MapPin size={16} /> Fikcyjna sieć odbioru
+          <span className="text-bakery-gold uppercase tracking-widest text-xs font-bold mb-3 block flex items-center justify-center gap-2">
+            <MapPin size={16} /> Sieć Pracowni & Cukierni na Warmii
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">6 Lokalizacji dla Ciebie</h2>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto font-light">
-            Znajdź najbliższą pracownię Złotego Bochna i odbierz swoje zamówienie
-            dzięki wygodnemu odbiorowi zamówień złożonych przez internet.
+          <h2 className="text-4xl md:text-5xl font-serif mb-5">6 Pracowni w Regionie</h2>
+          <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
+            Odwiedź nasze rzemieślnicze punkty wypieku. Odbierz jeszcze ciepły chleb z pieca szamotowego 
+            lub skonsultuj zamówienie tortu artystycznego z naszym cukiernikiem.
           </p>
         </div>
 

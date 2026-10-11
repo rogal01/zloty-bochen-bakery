@@ -80,10 +80,12 @@ export const DELIVERY_OPTIONS = [
 ];
 
 export const PICKUP_LOCATIONS = [
-  "Nowe Brzegi, ul. Miodowa 12",
-  "Słoneczna, Rynek 4",
-  "Młynary, ul. Zbożowa 8",
-  "Lipowe Pole, ul. Cukiernicza 3",
+  "Nowe Brzegi, ul. Miodowa 12 (Pracownia Główna)",
+  "Słoneczna, Rynek 4 (Cukiernia & Kawiarnia)",
+  "Młynary, ul. Zbożowa 8 (Manufaktura Wypieków)",
+  "Lipowe Pole, ul. Cukiernicza 3 (Pracownia Rzemieślnicza)",
+  "Jasny Las, ul. Leśna 21 (Punkt Odbioru Tortów)",
+  "Stare Mosty, ul. Mostowa 5 (Pracownia Chlebowa)",
 ];
 
 export const INITIAL_CONFIG: CakeConfig = {
@@ -114,3 +116,64 @@ export function translateCategory(category: string) {
 
   return category;
 }
+
+export interface CakeMetrics {
+  weightKg: number;
+  servings: number;
+  heightCm: number;
+  price: number;
+}
+
+export function calculateCakeMetrics(config: CakeConfig): CakeMetrics {
+  const selectedSize = SIZES.find((s) => s.id === config.size) ?? SIZES[0];
+  const selectedFrosting = FROSTINGS.find((f) => f.id === config.frosting) ?? FROSTINGS[0];
+  const selectedColor = FROSTING_COLORS.find((c) => c.id === config.frostingColor) ?? FROSTING_COLORS[0];
+  const selectedDelivery = DELIVERY_OPTIONS.find((d) => d.id === config.delivery) ?? DELIVERY_OPTIONS[0];
+  const selectedDecorations = DECORATIONS.filter((d) => config.decorations.includes(d.id));
+
+  // Base tier weight (kg)
+  const baseWeightNum = parseFloat(selectedSize.weight);
+  
+  // Multi-tier multiplier (Tier 1: ~1.2kg, Tier 2: ~2.4kg, Tier 3: ~3.8kg for 16cm base)
+  let tierWeightBonus = 0;
+  if (config.tiers === 2) {
+    tierWeightBonus = 1.2;
+  } else if (config.tiers === 3) {
+    tierWeightBonus = 2.6;
+  }
+
+  // Frosting weight addition
+  let frostingWeight = 0.15;
+  if (config.frosting === "ganache") frostingWeight = 0.25;
+  else if (config.frosting === "cream-cheese") frostingWeight = 0.20;
+  else if (config.frosting === "naked") frostingWeight = 0.05;
+
+  // Decorations density weight
+  let decorationsWeight = 0;
+  if (config.decorations.includes("seasonal-berries")) decorationsWeight += 0.30;
+  if (config.decorations.includes("orchard-fruit")) decorationsWeight += 0.35;
+  if (config.decorations.includes("cream-flowers")) decorationsWeight += 0.15;
+  if (config.decorations.includes("wafer-text")) decorationsWeight += 0.05;
+
+  const totalWeightKg = Number((baseWeightNum + tierWeightBonus + frostingWeight + decorationsWeight).toFixed(1));
+  const servings = selectedSize.slices + (config.tiers - 1) * 12;
+  const heightCm = config.tiers * 9;
+
+  const decorationsPrice = selectedDecorations.reduce((sum, d) => sum + d.price, 0);
+  const totalPrice =
+    120 +
+    selectedSize.price +
+    (config.tiers - 1) * 90 +
+    selectedFrosting.price +
+    selectedColor.price +
+    decorationsPrice +
+    selectedDelivery.price;
+
+  return {
+    weightKg: totalWeightKg,
+    servings,
+    heightCm,
+    price: totalPrice,
+  };
+}
+

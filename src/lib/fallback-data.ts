@@ -22,14 +22,14 @@ export const fallbackLocations: LocationRecord[] = [
     address: "ul. Miodowa 12",
     type: "Piekarnia i kawiarnia",
     phone: "+48 500 700 900",
-    desc: "Fikcyjna główna pracownia marki.",
+    desc: "Główna manufaktura piekarnicza z piecem szamotowym.",
     openSunday: false,
   },
-  { id: 2, city: "Słoneczna", address: "Rynek 4", type: "Cukiernia", phone: "+48 500 700 901", openSunday: true },
-  { id: 3, city: "Młynary", address: "ul. Zbożowa 8", type: "Punkt odbioru tortów", phone: "+48 500 700 902", openSunday: false },
-  { id: 4, city: "Lipowe Pole", address: "ul. Cukiernicza 3", type: "Piekarnia", phone: "+48 500 700 903", openSunday: false },
-  { id: 5, city: "Jasny Las", address: "ul. Leśna 21", type: "Kawiarnia", phone: "+48 500 700 904", openSunday: true },
-  { id: 6, city: "Stare Mosty", address: "ul. Mostowa 5", type: "Punkt sprzedaży", phone: "+48 500 700 905", openSunday: false },
+  { id: 2, city: "Słoneczna", address: "Rynek 4", type: "Cukiernia & Kawiarnia", phone: "+48 500 700 901", desc: "Pracownia tortów weselnych i monoporcji.", openSunday: true },
+  { id: 3, city: "Młynary", address: "ul. Zbożowa 8", type: "Pracownia Chlebowa", phone: "+48 500 700 902", desc: "Dojrzewalnia zakwasu i piec żytni.", openSunday: false },
+  { id: 4, city: "Lipowe Pole", address: "ul. Cukiernicza 3", type: "Piekarnia Tradycyjna", phone: "+48 500 700 903", desc: "Wypiek świeżych bagietek i drożdżówek.", openSunday: false },
+  { id: 5, city: "Jasny Las", address: "ul. Leśna 21", type: "Punkt Odbioru Tortów & Kawiarnia", phone: "+48 500 700 904", desc: "Odbiór zamówień okolicznościowych.", openSunday: true },
+  { id: 6, city: "Stare Mosty", address: "ul. Mostowa 5", type: "Pracownia Rzemieślnicza", phone: "+48 500 700 905", desc: "Poranny wypiek chleba wiejskiego.", openSunday: false },
 ];
 
 export const fallbackFlavors: FlavorRecord[] = [
